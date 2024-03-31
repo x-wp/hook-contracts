@@ -10,6 +10,16 @@ namespace XWP\Contracts\Hook;
 
 /**
  * Hook decorator functionality.
+ *
+ * @property-read string                    $tag         Hook name. Can use the `vsprinf` format in combination with `$modifiers`.
+ * @property-read array|int|string|callable $priority    Hook priority. Can be a number, callable, or a string. Strings are treated as filters, which will be applied to the default priority.
+ * @property-read int                       $context     Context bitmask determining where the hook can be invoked.
+ * @property-read array|callable|false      $conditional Hook conditional. Callable which will be invoked to determine if the hook should be invoked.
+ * @property-read string|false              $requires    Prerequisite hook that must be invoked before this hook. Handler classname, or Classname, method array.
+ * @property-read string|array|false        $modifiers   Replacement pairs for the tag name.
+ *
+ * @property bool         $invoked Flag indicating if the hook has been invoked.
+ * @property string|array $target  Hook target. Handler classname, or handler, method array.
  */
 interface Hook_Interface {
     /**
@@ -67,25 +77,6 @@ interface Hook_Interface {
      * @var string
      */
     public const HOOK_TYPE = self::HOOK_TYPE;
-
-    /**
-     * Constructor.
-     *
-     * Properties should be readonly and publicly accessible.
-     *
-     * @param  string                     $tag         Hook tag.
-     * @param  int                        $priority    Hook priority.
-     * @param  int                        $context     Hook context.
-     * @param  array|string|\Closure|null $conditional Hook conditional.
-     * @param  string|array|false         $args        Tag replacement pairs.
-     */
-    public function __construct(
-        string $tag,
-        array|int|string $priority = 10,
-        int $context = self::CTX_GLOBAL,
-        array|string|\Closure|null $conditional = null,
-        string|array|false $args = false,
-    );
 
     /**
      * Gets the parsed (actual) priority for a hook.
