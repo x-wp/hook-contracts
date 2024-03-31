@@ -11,7 +11,7 @@ namespace XWP\Contracts\Hook;
 /**
  * Allows handler and hook registration and invocation.
  */
-interface Hook_Manager_Interface {
+interface Invoker_Interface {
     /**
      * Get the hook manager instance.
      *

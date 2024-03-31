@@ -117,9 +117,9 @@ trait Accessible_Hook_Methods {
     /**
      * Get the hook manager instance.
      *
-     * @return Hook_Manager_Interface
+     * @return Invoker_Interface
      */
-    protected static function get_manager(): Hook_Manager_Interface {
-        return \XWP\Hook\Hook_Manager::instance();
+    protected static function get_manager(): Invoker_Interface {
+        return \XWP\Hook\Invoker::instance();
     }
 }

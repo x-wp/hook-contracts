@@ -91,14 +91,14 @@ interface Hook_Interface {
      * Applies the hook to a handler.
      *
      * @param  string|object $handler Handler to apply the hook to. Classname, or handler instance.
-     * @return Hook_Manager_Interface
+     * @return Invoker_Interface
      */
-    public function apply( string|object $handler ): Hook_Manager_Interface;
+    public function apply( string|object $handler ): Invoker_Interface;
 
     /**
      * Get the hook manager instance.
      *
-     * @return Hook_Manager_Interface
+     * @return Invoker_Interface
      */
-    public function get_manager(): Hook_Manager_Interface;
+    public function get_manager(): Invoker_Interface;
 }
