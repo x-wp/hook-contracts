@@ -1,7 +1,8 @@
 {
   "name": "x-wp/hook-contracts",
-  "type": "library",
   "description": "Generic abstraction related to xWP hooks",
+  "license": "GPL-2.0-only",
+  "type": "library",
   "keywords": [
     "abstractions",
     "contracts",
@@ -12,9 +13,17 @@
     "extended-wp",
     "hook"
   ],
-  "license": "GPL-2.0-only",
+  "authors": [
+    {
+      "name": "Sibin Grasic",
+      "email": "sibin.grasic@oblak.studio"
+    }
+  ],
   "require": {
     "php": ">=8.1"
+  },
+  "suggest": {
+    "automattic/jetpack-autoloader": "Allow for better interoperability with other plugins that use this package."
   },
   "autoload": {
     "psr-4": {
