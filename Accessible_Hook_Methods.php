@@ -2,8 +2,8 @@
 /**
  * Accessible_Hook_Methods trait file.
  *
- * @package WP Utils
- * @subpackage Traits
+ * @package XWP
+ * @subpackage Contracts\Hook
  */
 
 namespace XWP\Contracts\Hook;

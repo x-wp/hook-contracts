@@ -9,7 +9,7 @@
 namespace XWP\Contracts\Hook;
 
 /**
- * Execution context enum.
+ * Determines the current WP execution context.
  */
 enum Context: int implements Context_Interface {
     /**

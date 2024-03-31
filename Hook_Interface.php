@@ -1,7 +1,16 @@
 <?php
+/**
+ * Hook_Interface interface file.
+ *
+ * @package XWP
+ * @subpackage Contracts\Hook
+ */
 
 namespace XWP\Contracts\Hook;
 
+/**
+ * Hook decorator functionality.
+ */
 interface Hook_Interface {
     /**
      * Indicates that a hook can be invoked in user-facing pages.

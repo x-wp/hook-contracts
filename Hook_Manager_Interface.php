@@ -1,7 +1,16 @@
 <?php
+/**
+ * Hook_Manager_Interface interface file.
+ *
+ * @package XWP
+ * @subpackage Contracts\Hook
+ */
 
 namespace XWP\Contracts\Hook;
 
+/**
+ * Allows handler and hook registration and invocation.
+ */
 interface Hook_Manager_Interface {
     /**
      * Get the hook manager instance.

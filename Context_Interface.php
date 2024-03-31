@@ -1,7 +1,16 @@
 <?php
+/**
+ * Context_Interface interface file.
+ *
+ * @package XWP
+ * @subpackage Contracts\Hook
+ */
 
 namespace XWP\Contracts\Hook;
 
+/**
+ * Covers basic context functionality.
+ */
 interface Context_Interface {
     /**
      * Format the context for display.
