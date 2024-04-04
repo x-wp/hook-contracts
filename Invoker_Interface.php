@@ -2,7 +2,7 @@
 /**
  * Hook_Manager_Interface interface file.
  *
- * @package XWP
+ * @package eXtended WordPress
  * @subpackage Contracts\Hook
  */
 
@@ -36,25 +36,9 @@ interface Invoker_Interface {
     public function register_handler( string $handler ): static;
 
     /**
-     * Register the handler methods.
-     *
-     * @param  object|\ReflectionClass $handler Handler instance, or handler reflection.
-     * @return static
-     */
-    public function register_handler_methods( object $handler ): static;
-
-    /**
-     * Checks if a hook can be invoked.
-     *
-     * @param  Hook_Interface $hook Hook to check.
-     * @return bool
-     */
-    public function can_invoke( Hook_Interface $hook ): bool;
-
-    /**
      * Get handlers registered with the hook manager.
      *
-     * @return array<string, Hook_Interface>
+     * @return array<string, Hookable>
      */
     public function get_handlers(): array;
 

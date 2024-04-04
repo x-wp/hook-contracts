@@ -2,7 +2,7 @@
 /**
  * Accessible_Hook_Methods trait file.
  *
- * @package XWP
+ * @package eXtended WordPress
  * @subpackage Contracts\Hook
  */
 

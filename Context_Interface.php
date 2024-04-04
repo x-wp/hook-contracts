@@ -2,7 +2,7 @@
 /**
  * Context_Interface interface file.
  *
- * @package XWP
+ * @package eXtended WordPress
  * @subpackage Contracts\Hook
  */
 

@@ -65,6 +65,26 @@ enum Context: int implements Context_Interface {
     }
 
     /**
+     * Create a context from a slug.
+     *
+     * @param  string $ctx_slug The context slug.
+     * @return Context
+     */
+    public static function fromSlug( string $ctx_slug ): Context {
+        return match ( $ctx_slug ) {
+            'front', 'frontend',
+            'public', 'website'   => self::Frontend,
+            'admin', 'dashboard',
+            'administration'      => self::Admin,
+            'ajax'                => self::Ajax,
+            'cron'                => self::Cron,
+            'rest'                => self::REST,
+            'cli'                 => self::CLI,
+            'global'              => self::Global,
+        };
+    }
+
+    /**
      * Check if the current context is valid.
      *
      * @param  int $ctx The context to check.

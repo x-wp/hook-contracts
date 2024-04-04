@@ -25,6 +25,8 @@
   "suggest": {
     "automattic/jetpack-autoloader": "Allow for better interoperability with other plugins that use this package."
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "XWP\\Contracts\\Hook\\": ""
