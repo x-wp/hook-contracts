@@ -1,4 +1,4 @@
-<?php // phpcs:disable PHPCompatibility.Variables.ForbiddenThisUseContexts
+<?php // phpcs:disable PHPCompatibility.Variables.ForbiddenThisUseContexts, WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
 /**
  * Invoke enum file.
  *
@@ -57,7 +57,7 @@ enum Initialize: string {
      * @param  string|null $tag Tag to check.
      * @return bool
      */
-    public function is_tag_valid( ?string $tag ): bool {
+    public function isTagValid( ?string $tag ): bool {
         return match ( $this ) {
             self::OnDemand,
             self::JustInTime,
@@ -68,11 +68,24 @@ enum Initialize: string {
     }
 
     /**
+     * Check if the handler hooks indirectly.
+     *
+     * @return bool
+     */
+    public function hooksIndirectly(): bool {
+        return match ( $this ) {
+            self::OnDemand,
+            self::JustInTime => true,
+            default => false,
+        };
+    }
+
+    /**
      * Check if the handler is initialized on demand.
      *
      * @return bool
      */
-    public function is_ondemand(): bool {
+    public function isOnDemand(): bool {
         return self::OnDemand === $this;
     }
 
@@ -81,7 +94,7 @@ enum Initialize: string {
      *
      * @return bool
      */
-    public function is_just_in_time(): bool {
+    public function isJIT(): bool {
         return self::JustInTime === $this;
     }
 }

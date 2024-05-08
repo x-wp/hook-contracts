@@ -52,6 +52,10 @@ trait Accessible_Hook_Methods {
      * @throws \BadMethodCallException If the method does not exist or is not hooked.
      */
     public static function __callStatic( string $name, array $arguments ) {
+        if ( 'can_initialize' === $name ) {
+            return true;
+        }
+
         $should_throw = static::check_method_access( static::class, $name );
 
         if ( false !== $should_throw ) {

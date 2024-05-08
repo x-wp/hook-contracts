@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:disable PHPCompatibility.Variables.ForbiddenThisUseContexts, WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
 /**
  * Invoke enum file.
  *
@@ -28,4 +28,22 @@ enum Invoke : string {
      * ! Caveat emptor: Indirect invoking can be an order of magnitude slower than direct invoking.
      */
     case Indirectly = 'indirectly';
+
+    case WithCustomArgs = 'customArgs';
+
+    case Conditionally = 'conditionaly';
+
+    /**
+     * Check if the hook is invoked indirectly.
+     *
+     * @return bool
+     */
+    public function isIndirect(): bool {
+        return match ( $this ) {
+            self::Indirectly,
+            self::Conditionally,
+            self::WithCustomArgs => true,
+            default => false,
+        };
+    }
 }
