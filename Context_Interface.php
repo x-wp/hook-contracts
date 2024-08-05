@@ -10,6 +10,8 @@ namespace XWP\Contracts\Hook;
 
 /**
  * Covers basic context functionality.
+ *
+ * @property-read int $value The context value.
  */
 interface Context_Interface {
     /**
