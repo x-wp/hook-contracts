@@ -8,20 +8,25 @@
 
 namespace XWP\Contracts\Hook;
 
+use ReflectionClass;
+use ReflectionMethod;
+
 /**
  * Hook decorator functionality.
  *
- * @template T
- *
  * ! Global properties shared among hooks and handlers
+ *
+ * @template THndlr of object
+ * @template TRflct of ReflectionClass<THndlr>|ReflectionMethod
  *
  * @property-read string                    $tag           Hook name. Can use the `vsprinf` format in combination with `$modifiers`.
  * @property-read array|int|string|callable $priority      Hook priority. Can be a number, callable, or a string. Strings are treated as filters, which will be applied to the default priority.
  * @property-read int                       $context       Context bitmask determining where the hook can be invoked.
- * @property-read string|false              $requires      Prerequisite hook that must be invoked before this hook. Handler classname, or Classname, method array.
+ * @property-read string|array|false        $requires      Prerequisite hook that must be invoked before this hook. Handler classname, or Classname, method array.
  * @property-read string|array|false        $modifiers     Replacement pairs for the tag name.
  * @property-read int                       $real_priority Actual priority of the hook.
  * @property-read array|callable|false      $conditional   Hook conditional. Callable which will be invoked to determine if the hook should be invoked.
+ * @property-read TRflct                    $reflector     Reflector instance.
  */
 interface Hookable {
     /**
@@ -83,16 +88,8 @@ interface Hookable {
     /**
      * Set the reflector
      *
-     * @param  \Reflector $reflector Reflector instance.
+     * @param  TRflct $reflector Reflector instance.
      * @return static
      */
-    public function set_reflector( \Reflector $reflector ): static;
-
-    /**
-     * Set the hook target.
-     *
-     * @param  array|T $target Hook target.
-     * @return static
-     */
-    public function set_target( array|object $target ): static;
+    public function set_reflector( ReflectionClass|ReflectionMethod $reflector ): static;
 }
